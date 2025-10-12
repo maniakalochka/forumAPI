@@ -14,6 +14,7 @@ if SRC_DIR not in sys.path:
 from app.core.config import settings  # type: ignore
 from app.db.base import Base  # type: ignore
 from app.models.orm_models.user import User  # type: ignore
+from app.models.orm_models.access_token import AccessToken  # type: ignore
 
 config = context.config
 DB_URL = getattr(settings, "AUTH_DB_URL", None)
