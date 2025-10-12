@@ -17,10 +17,16 @@ dependencies = [
     "alembic (>=1.17.0,<2.0.0)",
     "pydantic-settings (>=2.11.0,<3.0.0)",
     "fastapi-users-db-sqlalchemy (>=7.0.0,<8.0.0)",
-    "psycopg2 (>=2.9.11,<3.0.0)"
+    "psycopg2 (>=2.9.11,<3.0.0)",
+    "redis (>=6.4.0,<7.0.0)",
+    "itsdangerous (>=2.2.0,<3.0.0)"
 ]
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+redis = "^6.4.0"
+
