@@ -25,9 +25,7 @@ class User(SQLAlchemyBaseUserTableUUID, Base):
     )
     display_name: Mapped[str] = mapped_column(String(32))
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime, default=datetime.now, onupdate=datetime.now
-    )
+    updated_at: Mapped[datetime] = mapped_column(default=datetime.now, onupdate=datetime.now)
 
     def __repr__(self) -> str:
-        return f"<User {self.email}>, Role: {self.role}"
+        return f"<User {self.email}>, Role: {self.role}, Registered ({self.created_at})"
