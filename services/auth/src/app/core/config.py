@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     # cryptography
     SECRET: str
     ALGORITHM: str
+    RESET_PASSWORD_TOKEN_SECRET: str
+    VERIFICATION_TOKEN_SECRET: str
 
 
 settings = Settings()  # type: ignore
