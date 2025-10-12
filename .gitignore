@@ -167,7 +167,7 @@ cython_debug/
 ecommerce.db
 .DS_Store
 .vscode
-.idea
+
 .zed
 .zrf.json
 docs
