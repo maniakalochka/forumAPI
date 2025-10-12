@@ -3,13 +3,13 @@ import uuid
 from contextlib import asynccontextmanager
 from typing import Optional
 
-from fastapi import Depends, Request
+from fastapi import Request
 from fastapi_users import BaseUserManager, FastAPIUsers
 from fastapi_users_db_sqlalchemy import SQLAlchemyUserDatabase
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.backend import auth_backend
-from app.auth.deps import get_user_db
+from app.auth.deps import get_user_manager
 from app.core.config import settings
 from app.models.orm_models.user import User
 
@@ -42,10 +42,6 @@ class UserManager(BaseUserManager[User, uuid.UUID]):
             value: str,
     ) -> uuid.UUID:
         return uuid.UUID(value)
-
-
-async def get_user_manager(user_db=Depends(get_user_db)):
-    yield UserManager(user_db)
 
 
 fastapi_users = FastAPIUsers[User, uuid.UUID](get_user_manager, [auth_backend])
