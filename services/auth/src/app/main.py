@@ -25,9 +25,9 @@ log = logging.getLogger(__name__)
 @asynccontextmanager  # type: ignore
 async def lifespan(app: FastAPI) -> AsyncGenerator:
     log.info("Starting up...")
-    app.state.engine = engine
-    app.state.session_factory = SessionLocal
-    app.state.redis = redis.from_url(settings.REDIS_URL, decode_responses=True)
+    app.state.engine = engine  # type: ignore
+    app.state.session_factory = SessionLocal  # type: ignore
+    app.state.redis = redis.from_url(settings.REDIS_URL, decode_responses=True)  # type: ignore
     yield
     log.info("Shutting down...")
     await engine.dispose()
